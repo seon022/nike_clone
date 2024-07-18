@@ -24,7 +24,11 @@ body {
   width: 100%;
   height: 100%;
   background: #141414;
+  font-family: "Noto Sans KR", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
 }
+/* <weight>: Use a value from 100 to 900 */
 
 /* 배경동영상 */
 .vid {
@@ -55,36 +59,51 @@ h1 img {
 /* 헤더 */
 header {
   position: fixed;
-  top: 0;
-  left: -420px;
-  width: 700px;
-  height: 100%;
+  top: -600px;
+  left: -600px;
+  width: 1300px;
+  height: 1100px;
   background: linear-gradient(
     -45deg,
-    rgba(236, 127, 31, 0.7),
     rgba(185, 251, 5, 0.7),
-    rgba(63, 181, 196, 0.7)
+    rgba(241, 211, 40, 0.7),
+    rgba(239, 178, 55, 0.7)
   );
-  transform: skewX(-40deg);
+  border-radius: 50%;
+  overflow: hidden;
 }
 
 /* 1depth*/
 /* 부모 태그가 fixed이고 자식태그가 absolute면 부모태그에 대해 위치고정됨. */
 #gnb {
+  display: inline-block;
   position: absolute;
-  top: 150px;
-  right: 0px;
-  width: 200px;
+  bottom: 100px;
+  min-width: 200px;
+  right: 160px;
+  transform: matrix3d();
+  transform: skewX(-45deg);
 }
 #gnb > li {
   position: relative;
-  width: 100%;
+  width: 300px;
+  padding-left: 40px;
+  margin-right: -100px;
   height: 60px;
-  text-align: center;
+  border-radius: 4px;
+  text-align: left;
+  /* transform: skewX(45deg); */
+}
+#gnb li a {
+  font-weight: 900;
+  color: #111;
+  line-height: 2.5;
 }
 #gnb > li > a {
-  font: bold 18px/60px arial;
-  color: #111;
+  line-height: 60px;
+}
+#gnb:first-child {
+  padding-left: 40px;
 }
 #gnb em {
   display: inline-block;
@@ -98,42 +117,15 @@ header {
 }
 
 /* 2depth */
-#gnb ul {
+#gnb .twoDepth {
   position: absolute;
-  left: 0px;
-  top: 0px;
-  opacity: 0;
-  transition: all 0.4s;
+  top: 0;
+  right: 0;
+  margin-right: 00px;
+  opacity: 1;
 }
-#gnb > li:hover ul {
-  opacity: 0.8;
-  left: 205px;
-}
-#gnb ul a {
-  display: block;
-  width: 150px;
-  height: 40px;
-  background: #222;
-  border-bottom: 1px solid #b9fb05;
-  font: bold 16px/2.5 arial;
-  color: #fff;
-  box-sizing: border-box;
-  padding-left: 50px;
-  margin-bottom: 3px;
-  transition: all 0.5s;
-}
-#gnb ul a:hover {
-  background: #b9fb05;
-  color: #333;
-}
-#gnb > li.on ul {
-  opacity: 0.8;
-  left: 205px;
-  top: -10px;
-}
-#gnb li.on ul a {
-  background: #444;
-  opacity: 0.7;
+#gnb > li:hover > .twoDepth {
+  background-color: red;
 }
 
 /* sns 버튼 모음*/
